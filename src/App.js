@@ -1,6 +1,7 @@
 // 사용자 지정 컴포넌트 임포트 하기 => 평범한 html요소처럼 사용하기 위해
 // import ExpenseItem from './components/Expenseltem';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense.js';
 
 const App = () => {
   const expenses = [
@@ -31,7 +32,7 @@ const App = () => {
       코드를 작성하면 자동적으로 브라우저에서 작동하는 코드로 변환됨
       사용자 지정 컴포넌트는 반드시 대문자로 시작  */
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense />
       <Expenses items={expenses} />
     </div>
   );
