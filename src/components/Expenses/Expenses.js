@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
-import ExpenseItem from './Expenseltem';
 import Card from '../UI/Card';
-import './Expenses.css';
 import ExpensesFilter from './ExpensesFilter';
+import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
+import './Expenses.css';
 
 const Expenses = (props) => {
   const [filteredYear, setFilterYear] = useState('2023');
@@ -27,22 +28,16 @@ const Expenses = (props) => {
   // => date에서 4자리수 연도를 추출하는 메소드
 
   return (
-    <div>
+    <li>
       <Card className="expenses">
         <ExpensesFilter
           selected={filteredYear}
           onChangeFilterYear={changeFilterYearHandler}
         />
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        <ExpensesChart expenses={filteredExpenses} />
+        <ExpensesList items={filteredExpenses} />
       </Card>
-    </div>
+    </li>
   );
 };
 
